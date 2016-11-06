@@ -11,8 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('/');
+Route::get('/', 'PropertyController@index');
+Route::get('/create', function () {
+    return view('properties/create');
 });
 
-Route::get('/users','UserController@index');
+
+Route::resource('/users','UserController');
+Route::resource('/properties','PropertyController');

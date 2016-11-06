@@ -11,4 +11,7 @@ class Property extends Model
     {
         return $this->hasMany('App\Comment');
     }
+    protected $fillable = [
+        'name', 'description','image','state', 'price', 'location'
+    ];
 }

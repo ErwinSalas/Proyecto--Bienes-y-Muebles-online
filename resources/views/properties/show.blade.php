@@ -52,7 +52,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
                 <ul>
                     <li><a href="#"><i class="fa fa-home"></i> home</a>
                         <ul class="sub-menu">
-                            <li><a href="index.html"><i class="fa fa-angle-right"></i> home 1</a></li>
+                            <li><a href="index.blade.php"><i class="fa fa-angle-right"></i> home 1</a></li>
                             <li><a href="index_digital.html"><i class="fa fa-angle-right"></i> home 2</a></li>
                             <li><a href="index2.html"><i class="fa fa-angle-right"></i> home 3</a></li>
                             <li><a href="index3.html"><i class="fa fa-angle-right"></i> home 4</a></li>
@@ -131,7 +131,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
                 </div>
             </div>
             <div class="rs_topheader_center">
-                <a href="index.html"><img src="images/small_logo.png" alt=""></a>
+                <a href="index.blade.php"><img src="images/small_logo.png" alt=""></a>
             </div>
             <div class="rs_topheader_right">
                 <div class="rs_user_pic">
@@ -174,7 +174,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <ul class="breadcrumb">
-                    <li><a href="index.html">home</a></li>
+                    <li><a href="index.blade.php">home</a></li>
                     <li><a href="product_4Column.html">Products</a></li>
                     <li class="active">HTML Templates</li>
                 </ul>
@@ -1465,7 +1465,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="rs_copyright">
-                    <p>&copy; <a href="index.html">Restored.</a> All rights reserved. Designed with Love by <a href="#">DigitalHeaps</a></p>
+                    <p>&copy; <a href="index.blade.php">Restored.</a> All rights reserved. Designed with Love by <a href="#">DigitalHeaps</a></p>
                 </div>
             </div>
         </div>

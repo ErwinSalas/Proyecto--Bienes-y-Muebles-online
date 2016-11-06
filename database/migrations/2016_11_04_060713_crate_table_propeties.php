@@ -18,7 +18,8 @@ class CrateTablePropeties extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
-            $table->boolean('state');
+            $table->string('state');
+            $table->string('image');
             $table->integer('price');
             $table->string('location');
              $table->timestamps();

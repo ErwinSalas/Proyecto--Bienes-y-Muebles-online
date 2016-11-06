@@ -21,10 +21,10 @@ Purchase: http://themeforest.net/user/DigiSamaritan
     <meta name="author" content="">
     <meta name="MobileOptimized" content="320">
     <!--srart theme style -->
-    <link href="/resources/assets/css/main.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/main.css" rel="stylesheet" type="text/css">
     <!-- end theme style -->
     <!-- favicon links -->
-    <link rel="shortcut icon" type="image/png" href="/resources/assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="/public/images/favicon.png">
 </head>
 <body>
 <!--Loader Start -->
@@ -40,10 +40,10 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 	<div class="rs_menu">
 		<div class="rs_menu_inner_section">
 			<div class="rs_menu_pic">
-			<img src="/resources/assets/images/menubg.jpg" class="img-responsive" alt="">
+			<img src="/public/images/menubg.jpg" class="img-responsive" alt="">
 			<div class="rs_menu_pic_overlay">
 				<div class="rs_menu_inner_pic">
-					<img src="/resources/assets/images/menulogo.png" alt="">
+					<img src="/public/images/menulogo.png" alt="">
 				</div>
 			</div>
 				
@@ -131,7 +131,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 					</div>
 				</div>
 				<div class="rs_topheader_center">
-					<a href="index.html"><img src="/resources/assets/images/small_logo.png" alt=""></a>
+					<a href="index.html"><img src="/public/images/small_logo.png" alt=""></a>
 				</div>
 				<div class="rs_topheader_right">
 					<div class="rs_user_pic">
@@ -139,7 +139,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 							<h6>DigitalHeaps</h6>
 							<h5>$1560.00</h5>
 						</div>
-						<img src="/resources/assets/images/user_img.jpg" alt="">
+						<img src="/public/images/user_img.jpg" alt="">
 						<i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i>
 					</div>
 					<div class="rs_user_profile">
@@ -237,7 +237,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 								<div class="rs_product_div">
 									<div class="rs_featureddiv">Featured</div>
 									<div class="rs_product_img">
-									<img src="/resources/assets/images/product/product1.jpg" class="img-responsive" alt="">
+									<img src="/public/images/product/product1.jpg" class="img-responsive" alt="">
 									<div class="rs_overlay">
 										<div class="rs_overlay_inner">
 											<ul>
@@ -259,7 +259,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 									</div>
 									<div class="rs_product_div_footer">
 										<div class="rs_author_div">
-											<img src="/resources/assets/images/author1.jpg" class="img-responsive" alt="">
+											<img src="/public/images/author1.jpg" class="img-responsive" alt="">
 											<div>
 												<h4><a href="author_dashboard.html">Jashon Matt</a></h4>
 												<p><a href="#">PSD Templates</a></p>
@@ -277,7 +277,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 							<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 rs_toppadder30 mix offers" data-value="2">
 								<div class="rs_product_div">
 									<div class="rs_product_img">
-									<img src="/resources/assets/images/product/product2.jpg" class="img-responsive" alt="">
+									<img src="/public/images/product/product2.jpg" class="img-responsive" alt="">
 									<div class="rs_overlay">
 										<div class="rs_overlay_inner">
 											<ul>
@@ -299,7 +299,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 									</div>
 									<div class="rs_product_div_footer">
 										<div class="rs_author_div">
-											<img src="/resources/assets/images/author2.jpg" class="img-responsive" alt="">
+											<img src="/public/images/author2.jpg" class="img-responsive" alt="">
 											<div>
 												<h4><a href="author_dashboard.html">Sara Martin</a></h4>
 												<p><a href="#">Mobile App UI</a></p>
@@ -317,7 +317,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 							<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 rs_toppadder30 mix fonts" data-value="3">
 								<div class="rs_product_div">
 									<div class="rs_product_img">
-									<img src="/resources/assets/images/product/product3.jpg" class="img-responsive" alt="">
+									<img src="/public/images/product/product3.jpg" class="img-responsive" alt="">
 									<div class="rs_overlay">
 										<div class="rs_overlay_inner">
 											<ul>
@@ -339,7 +339,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 									</div>
 									<div class="rs_product_div_footer">
 										<div class="rs_author_div">
-											<img src="/resources/assets/images/author3.jpg" class="img-responsive" alt="">
+											<img src="/public/images/author3.jpg" class="img-responsive" alt="">
 											<div>
 												<h4><a href="author_dashboard.html">Dave Augustin</a></h4>
 												<p><a href="#">Fonts</a></p>
@@ -357,7 +357,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 							<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 rs_toppadder30 mix bestsellers" data-value="4">
 								<div class="rs_product_div">
 									<div class="rs_product_img">
-									<img src="/resources/assets/images/product/product4.jpg" class="img-responsive" alt="">
+									<img src="/public/images/product/product4.jpg" class="img-responsive" alt="">
 									<div class="rs_overlay">
 										<div class="rs_overlay_inner">
 											<ul>
@@ -379,7 +379,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 									</div>
 									<div class="rs_product_div_footer">
 										<div class="rs_author_div">
-											<img src="/resources/assets/images/author4.jpg" class="img-responsive" alt="">
+											<img src="/public/images/author4.jpg" class="img-responsive" alt="">
 											<div>
 												<h4><a href="author_dashboard.html">Unimech Design</a></h4>
 												<p><a href="#">Wordpress</a></p>
@@ -397,7 +397,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 							<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 rs_toppadder30 mix price" data-value="5">
 								<div class="rs_product_div">
 									<div class="rs_product_img">
-									<img src="/resources/assets/images/product/product5.jpg" class="img-responsive" alt="">
+									<img src="/public/images/product/product5.jpg" class="img-responsive" alt="">
 									<div class="rs_overlay">
 										<div class="rs_overlay_inner">
 											<ul>
@@ -419,7 +419,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 									</div>
 									<div class="rs_product_div_footer">
 										<div class="rs_author_div">
-											<img src="/resources/assets/images/author5.jpg" class="img-responsive" alt="">
+											<img src="/public/images/author5.jpg" class="img-responsive" alt="">
 											<div>
 												<h4><a href="author_dashboard.html">Joshep Gordon</a></h4>
 												<p><a href="#">Mock up</a></p>
@@ -438,7 +438,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 								<div class="rs_product_div">
 									<div class="rs_featureddiv">Featured</div>
 									<div class="rs_product_img">
-									<img src="/resources/assets/images/product/product6.jpg" class="img-responsive" alt="">
+									<img src="/public/images/product/product6.jpg" class="img-responsive" alt="">
 									<div class="rs_overlay">
 										<div class="rs_overlay_inner">
 											<ul>
@@ -460,7 +460,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 									</div>
 									<div class="rs_product_div_footer">
 										<div class="rs_author_div">
-											<img src="/resources/assets/images/author6.jpg" class="img-responsive" alt="">
+											<img src="/public/images/author6.jpg" class="img-responsive" alt="">
 											<div>
 												<h4><a href="author_dashboard.html">Scralett John</a></h4>
 												<p><a href="#">Icons</a></p>
@@ -478,7 +478,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 							<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 rs_toppadder30 mix offers" data-value="7">
 								<div class="rs_product_div">
 									<div class="rs_product_img">
-									<img src="/resources/assets/images/product/product7.jpg" class="img-responsive" alt="">
+									<img src="/public/images/product/product7.jpg" class="img-responsive" alt="">
 									<div class="rs_overlay">
 										<div class="rs_overlay_inner">
 											<ul>
@@ -500,7 +500,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 									</div>
 									<div class="rs_product_div_footer">
 										<div class="rs_author_div">
-											<img src="/resources/assets/images/author7.jpg" class="img-responsive" alt="">
+											<img src="/public/images/author7.jpg" class="img-responsive" alt="">
 											<div>
 												<h4><a href="author_dashboard.html">Julianne Moore</a></h4>
 												<p><a href="#">HTML Templates</a></p>
@@ -518,7 +518,7 @@ Purchase: http://themeforest.net/user/DigiSamaritan
 							<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 rs_toppadder30 mix ratings" data-value="8">
 								<div class="rs_product_div">
 									<div class="rs_product_img">
-									<img src="/resources/assets/images/product/product8.jpg" class="img-responsive" alt="">
+									<img src="/public/images/product/product8.jpg" class="img-responsive" alt="">
 									<div class="rs_overlay">
 										<div class="rs_overlay_inner">
 											<ul>
