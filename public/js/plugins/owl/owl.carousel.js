@@ -2978,7 +2978,7 @@
         deltaX = Math[deltaX >= 1 ? 'floor' : 'ceil'](deltaX / lowestDelta);
         deltaY = Math[deltaY >= 1 ? 'floor' : 'ceil'](deltaY / lowestDelta);
 
-        // Normalise offsetX and offsetY properties
+        // Normalise offsetX and offsetY properties_images
         if (special.settings.normalizeOffset && this.getBoundingClientRect) {
             var boundingRect = this.getBoundingClientRect();
             offsetX = event.clientX - boundingRect.left;
@@ -2993,7 +2993,7 @@
         event.offsetY = offsetY;
         // Go ahead and set deltaMode to 0 since we converted to pixels
         // Although this is a little odd since we overwrite the deltaX/Y
-        // properties with normalized deltas.
+        // properties_images with normalized deltas.
         event.deltaMode = 0;
 
         // Add event and delta to the front of the arguments

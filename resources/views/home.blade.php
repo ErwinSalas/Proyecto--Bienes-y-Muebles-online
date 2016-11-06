@@ -310,7 +310,7 @@
                                     <div class="rs_product_div">
                                         <div class="rs_featureddiv">Featured</div>
                                         <div class="rs_product_img">
-                                            <img src="{{$property->image}}" class="img-responsive" alt="">
+                                            <img src="properties_images/{{$property->image}}" class="img-responsive" alt="">
                                             <div class="rs_overlay">
                                                 <div class="rs_overlay_inner">
                                                     <ul>
