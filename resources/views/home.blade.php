@@ -352,6 +352,7 @@
                                             </div>
                                             <div class="rs_share">
                                                 <ul>
+                                                    <li><a href="/properties/{{$property->id}}"><i class="fa fa-eraser"></i> <span>12</span></a></li>
                                                     <li><a href="#"><i class="fa fa-comment-o"></i> <span>12</span></a></li>
                                                     <li><a href="#"><i class="fa fa-heart-o"></i> <span>98</span></a></li>
                                                 </ul>
@@ -366,7 +367,7 @@
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="rs_btn_div rs_toppadder60">
-                        <a href="product_4Column.html" class="rs_button rs_button_orange">View All Products</a>
+                        <a href="/properties" class="rs_button rs_button_orange">View All Products</a>
                     </div>
                 </div>
             </div>

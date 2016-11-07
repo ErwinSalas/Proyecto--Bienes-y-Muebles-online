@@ -7,20 +7,32 @@ use App\Property;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
+use Session;
+use Redirect;
 
 class PropertyController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function listing()
     {
         //
         $properties=Property::all();
-        return view('home', ['properties' => $properties]);
+        return response()->json(
+            $properties->toArray()
+        );
+    }
+
+
+    public function index()
+    {
+        //
+        return view("properties/index");
     }
 
     /**
@@ -55,6 +67,9 @@ class PropertyController extends Controller
     public function show($id)
     {
         //
+        Property::destroy($id);
+        Session::flash('message','propiedad Eliminada Correctamente');
+        return Redirect::to('/');
     }
 
     /**
@@ -89,5 +104,9 @@ class PropertyController extends Controller
     public function destroy($id)
     {
         //
+        Property::destroy($id);
+        Session::flash('message','propiedad Eliminada Correctamente');
+        return Redirect::to('/');
+
     }
 }
