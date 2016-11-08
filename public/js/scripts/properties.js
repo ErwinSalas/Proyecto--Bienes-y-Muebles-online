@@ -1,14 +1,19 @@
 /**
  * Created by Erwin on 06/11/2016.
  */
-
+$(document).ready(function(){
+    loadProperties();
+});
 function loadProperties(){
     var container = $("#data_view");
     var route = "http://localhost:8000/properties_listing";
 
-    $("#data_view").empty();
+    container.empty();
     $.get(route, function(res){
+        console.log(res);
         $(res).each(function(key,properties){
+            console.log(key);
+            console.log(properties);
             container.append(""+
             "<div class='col-lg-3 col-md-4 col-sm-6 col-xs-12 rs_toppadder30 mix mix-all psd'data-value='1'>"+
                 "<div class='rs_product_div'>"+
@@ -66,13 +71,12 @@ function loadProperties(){
                 "</div>"+
             "</div>"+
             "");
+            console.log(container);
          });
         });
 
 }
-$(document).ready(function(){
-    loadProperties();
-});
+
 
 function Eliminar(btn){
     var route = "http://localhost:8000/genero/"+btn.value+"";

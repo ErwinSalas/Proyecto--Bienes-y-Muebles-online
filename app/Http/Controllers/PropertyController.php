@@ -109,4 +109,7 @@ class PropertyController extends Controller
         return Redirect::to('/');
 
     }
+    public function verProductos($id){
+
+    }
 }

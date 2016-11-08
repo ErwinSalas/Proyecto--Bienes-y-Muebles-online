@@ -72,8 +72,10 @@
 					<div class="woocommerce_wrapper">
 						<!-- Data Container -->
 
-						<div class="row " id="data_view" >
+						<div class="row" >
+							<div id="data_view" >
 
+							</div>
 
 						</div>	
 					</div>

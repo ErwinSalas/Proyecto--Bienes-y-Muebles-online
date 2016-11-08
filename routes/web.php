@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'ViewController@home');
+Route::get('/create', 'ViewController@createProperty');
 Route::get('/create', function () {
     return view('properties/create');
 });

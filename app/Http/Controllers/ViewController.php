@@ -13,6 +13,11 @@ class ViewController extends Controller
         return view('home', ['properties' => $properties]);
 
     }
+    public function createProperty(){
+
+        return view('properties/create');
+
+    }
 
 
 

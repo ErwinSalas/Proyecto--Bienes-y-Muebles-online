@@ -340,7 +340,6 @@
     <script src="{{asset('js/plugins/c3_chart/d3.v3.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('js/plugins/c3_chart/c3.js')}}" type="text/javascript"></script>
     <script src="{{asset('js/pgwslideshow.js')}}" type="text/javascript"></script>
-    <script src="{{asset('js/scripts/properties.js')}}"></script>
     <script src="{{asset('js/custom.js')}}" type="text/javascript"></script>
 
     <!-- Script end -->
