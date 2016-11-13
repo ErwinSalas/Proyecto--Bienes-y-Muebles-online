@@ -2,7 +2,7 @@
     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 rs_toppadder30 "
          data-value="1">
         <div class="rs_product_div">
-            <div class="rs_featureddiv">Featured</div>
+            <div class="rs_featureddiv">En venta</div>
             <div class="rs_product_img">
                 <img src="properties_images/{{$property->image}}" class="img-responsive" alt="">
                 <div class="rs_overlay">
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="rs_product_detail">
-                <h5><a href="product_single.html">{{$property->name}}</a></h5>
+                <h5><a href="/properties/{{$property->id}}">{{$property->name}}</a></h5>
 
                 <div class="rs_rating">
                     <form>

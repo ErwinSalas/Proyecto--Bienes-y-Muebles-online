@@ -7,6 +7,7 @@ use App\Property;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 use Session;
 use Redirect;
 
@@ -21,16 +22,14 @@ class PropertyController extends Controller
      */
     public function listing(Request $request)
     {
-        //
-        /*$properties=Property::all();
-        return response()->json(
-            $properties->toArray()
-        );*/
-        $properties=Property::paginate(4);
-        if($request->ajax()) {
+
+        $filter=$request->input('filter');
+        if($filter != "") {
+            $properties=Property::where('name','like',"%".$filter."%")->paginate(4);
             return response()->json(view('properties/properties', compact('properties'))->render());
         }
-        return view("properties/properties", compact("properties")->render());
+        $properties=Property::paginate(4);
+        return response()->json(view('properties/properties', compact('properties'))->render());
     }
 
 
@@ -74,9 +73,8 @@ class PropertyController extends Controller
     public function show($id)
     {
         //
-
-
-
+        $property=Property::find($id);
+        return view('properties/show',['property'=>$property]);
 
     }
 

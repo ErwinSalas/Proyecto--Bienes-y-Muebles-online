@@ -8,9 +8,13 @@ $(document).on('click','.pagination a',function(e){
         e.preventDefault();
         var page = $(this).attr('href').split('page=')[1];
         var route = "http://localhost:8000/properties_listing";
+        var search=$('#input-search').val();
         $.ajax({
                url: route,
-               data: {page: page},
+               data: {
+                   page: page,
+                   filter: search
+                },
             type: 'GET',
                dataType: 'json',
                success: function(data){
@@ -18,13 +22,22 @@ $(document).on('click','.pagination a',function(e){
                }
         });
     });
+$('#btn-search').on('click',function(e){
+    e.preventDefault();
+    loadProperties();
+
+});
 
 function loadProperties(){
     var page = 1;
     var route = "http://localhost:8000/properties_listing";
+    var search=$('#input-search').val();
     $.ajax({
         url: route,
-        data: {page: page},
+        data: {
+            page: page,
+            filter: search
+        },
         type: 'GET',
         dataType: 'json',
         success: function(data){
@@ -53,7 +66,7 @@ function Eliminar(id){
 }
 
 function Mostrar(id){
-    var route = "http://localhost:8000/genero/"+id;
+    var route = "http://localhost:8000/properties/"+id;
 
     $.get(route, function(res){
         $("#genre").val(res.genre);
@@ -64,7 +77,7 @@ function Mostrar(id){
 $("#actualizar").click(function(){
     var value = $("#id").val();
     var dato = $("#genre").val();
-    var route = "http://localhost:8000/genero/"+value+"";
+    var route = "http://localhost:8000/properties/"+value+"";
     var token = $("#token").val();
 
     $.ajax({
@@ -78,5 +91,4 @@ $("#actualizar").click(function(){
             $("#myModal").modal('toggle');
             $("#msj-success").fadeIn();
         }
-    });
-});
+    });});
