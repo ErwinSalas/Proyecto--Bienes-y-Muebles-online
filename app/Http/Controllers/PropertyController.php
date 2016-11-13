@@ -19,13 +19,18 @@ class PropertyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function listing()
+    public function listing(Request $request)
     {
         //
-        $properties=Property::all();
+        /*$properties=Property::all();
         return response()->json(
             $properties->toArray()
-        );
+        );*/
+        $properties=Property::paginate(4);
+        if($request->ajax()) {
+            return response()->json(view('properties/properties', compact('properties'))->render());
+        }
+        return view("properties/properties", compact("properties")->render());
     }
 
 
@@ -33,7 +38,9 @@ class PropertyController extends Controller
     {
         //
         return view("properties/index");
+
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -55,7 +62,7 @@ class PropertyController extends Controller
     {
         //
         Property::create($request->all());
-        return $this->index();
+        return $this->index($request);
     }
 
     /**
@@ -67,9 +74,10 @@ class PropertyController extends Controller
     public function show($id)
     {
         //
-        Property::destroy($id);
-        Session::flash('message','propiedad Eliminada Correctamente');
-        return Redirect::to('/');
+
+
+
+
     }
 
     /**
@@ -105,8 +113,9 @@ class PropertyController extends Controller
     {
         //
         Property::destroy($id);
-        Session::flash('message','propiedad Eliminada Correctamente');
-        return Redirect::to('/');
+
+        return response()->json(["Mensaje"=>"Listo"]);
+
 
     }
     public function verProductos($id){
