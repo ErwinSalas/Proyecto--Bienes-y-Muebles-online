@@ -19,10 +19,10 @@ Route::group(['prefix' => 'admin'], function(){
 });
 
 Route::get('/', 'ViewController@home');
-Route::get('/create', function () {
-    return view('properties/create');
-});
+Route::get('properties_create', 'ViewController@createProperty');
+
 
 Route::resource('/users','UserController');
 Route::resource('/properties','PropertyController');
+
 Route::get("properties_listing",'PropertyController@listing');

@@ -33,13 +33,7 @@
 </head>
 <body>
 <!--Loader Start -->
-    <div class="rs_preloaded">
-        <div class="rs_preloader">
-            <div class="lines">
-            </div>
-            <div class="loading-text">LOADING...</div>
-        </div>
-    </div>
+
     <!--Loader End -->
     <div class="menu-wrap">
         <div class="rs_menu">
@@ -55,42 +49,23 @@
                 <div class="rs_main_menu">
                     <ul>
                         <li>
-                            <a href="#">
-                                <i class="fa fa-home"></i> Usuarios
-                            </a>
+                            <a href="#"><i class="fa fa-user"></i> Usuarios</a>
+                            <ul class="sub-menu">
+                                <li><a href="about_us.html"><i class="fa fa-angle-right"></i>Ver</a></li>
+                                <li><a href="comingsoon.html"><i class="fa fa-angle-right"></i>Agregar</a></li>
+
+                            </ul>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-shopping-cart"></i> Bienes</a>
                             <ul class="sub-menu">
-                                <li><a href="product_4Column.html"><i class="fa fa-angle-right"></i> product</a></li>
-                                <li><a href="product-with-sidebar.html"><i class="fa fa-angle-right"></i> product with
-                                        sidebar</a>
+                                <li><a href="/properties"><i class="fa fa-angle-right"></i> Ver</a></li>
+                                <li><a href="/properties_create"><i class="fa fa-angle-right"></i> Agregar</a>
                                 </li>
-                                <li><a href="product_single.html"><i class="fa fa-angle-right"></i> product single</a></li>
-                                <li><a href="cart.html"><i class="fa fa-angle-right"></i> cart</a></li>
+
                             </ul>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o"></i> pages</a>
-                            <ul class="sub-menu">
-                                <li><a href="about_us.html"><i class="fa fa-angle-right"></i> about us</a></li>
-                                <li><a href="comingsoon.html"><i class="fa fa-angle-right"></i> comingsoon</a></li>
-                                <li><a href="contact.html"><i class="fa fa-angle-right"></i> contact</a></li>
-                                <li><a href="coupon_list.html"><i class="fa fa-angle-right"></i> coupon list</a></li>
-                                <li><a href="faqs.html"><i class="fa fa-angle-right"></i> faq's</a></li>
-                                <li><a href="forum.html"><i class="fa fa-angle-right"></i> forum</a></li>
-                                <li><a href="error.html"><i class="fa fa-angle-right"></i> 404 error</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-user"></i> My Profile</a>
-                            <ul class="sub-menu">
-                                <li><a href="author_profile.html"><i class="fa fa-angle-right"></i> author profile</a></li>
-                                <li><a href="author_dashboard.html"><i class="fa fa-angle-right"></i> author dashboard</a>
-                                </li>
-                                <li><a href="user_dashboard.html"><i class="fa fa-angle-right"></i> user dashboard</a></li>
-                            </ul>
-                        </li>
+
                         <li>
                             <a href="#"><i class="fa fa-stack-exchange"></i> knowledge Base</a>
                             <ul class="sub-menu">
@@ -340,7 +315,6 @@
     <script src="{{asset('js/plugins/c3_chart/d3.v3.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('js/plugins/c3_chart/c3.js')}}" type="text/javascript"></script>
     <script src="{{asset('js/pgwslideshow.js')}}" type="text/javascript"></script>
-    <script src="{{asset('js/scripts/properties.js')}}"></script>
     <script src="{{asset('js/custom.js')}}" type="text/javascript"></script>
 
     <!-- Script end -->
