@@ -11,9 +11,15 @@
 |
 */
 
+Route::resource('/users/create', 'UserController');
+Route::resource('/save', 'UserController@store');
+
+Route::group(['prefix' => 'admin'], function(){
+	Route::get('/', 'ViewController@home');
+});
+
 Route::get('/', 'ViewController@home');
 Route::get('properties_create', 'ViewController@createProperty');
-
 
 
 Route::resource('/users','UserController');
