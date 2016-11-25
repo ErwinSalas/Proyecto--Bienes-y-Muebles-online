@@ -25,10 +25,10 @@ class PropertyController extends Controller
 
         $filter=$request->input('filter');
         if($filter != "") {
-            $properties=Property::where('name','like',"%".$filter."%")->paginate(4);
+            $properties=Property::where('name','like',"%".$filter."%")->paginate(8);
             return response()->json(view('properties/properties', compact('properties'))->render());
         }
-        $properties=Property::paginate(4);
+        $properties=Property::paginate(8);
         return response()->json(view('properties/properties', compact('properties'))->render());
     }
 
