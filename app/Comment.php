@@ -7,7 +7,7 @@ use App\User;
 class Comment extends Model
 {
     protected $fillable = [
-        'content', 'user_id','property_id','date'
+        'content', 'user_id','property_id'
     ];
     public function user()
     {

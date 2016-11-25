@@ -11,9 +11,6 @@ class ViewController extends Controller
     public function home(){
         $properties=Property::all();
         return view('home', ['properties' => $properties]);
-
     }
-
-
 
 }

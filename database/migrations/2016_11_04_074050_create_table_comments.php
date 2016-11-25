@@ -20,8 +20,8 @@ class CreateTableComments extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('property_id')->unsigned();
-            $table->foreign('property_id')->references('id')->on('properties_images')->onDelete('cascade');
-            $table->timestamps('date');
+            $table->foreign('property_id')->references('id')->on('properties')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

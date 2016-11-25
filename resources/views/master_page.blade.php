@@ -33,13 +33,7 @@
 </head>
 <body>
 <!--Loader Start -->
-    <div class="rs_preloaded">
-        <div class="rs_preloader">
-            <div class="lines">
-            </div>
-            <div class="loading-text">LOADING...</div>
-        </div>
-    </div>
+
     <!--Loader End -->
     <div class="menu-wrap">
         <div class="rs_menu">
@@ -55,66 +49,44 @@
                 <div class="rs_main_menu">
                     <ul>
                         <li>
-                            <a href="#">
-                                <i class="fa fa-home"></i> Usuarios
-                            </a>
+                            <a href="#"><i class="fa fa-user"></i> Usuarios</a>
+                            <ul class="sub-menu">
+                                @if (Auth::guest())
+                                    <li><a href="{{ url('/login') }}">Login</a></li>
+                                    <li><a href="{{ url('/register') }}">Register</a></li>
+                                @else
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                        </a>
+
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="{{ url('/logout') }}"
+                                                    onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();">
+                                                    Logout
+                                                </a>
+
+                                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                @endif
+
+                            </ul>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-shopping-cart"></i> Bienes</a>
                             <ul class="sub-menu">
-                                <li><a href="product_4Column.html"><i class="fa fa-angle-right"></i> product</a></li>
-                                <li><a href="product-with-sidebar.html"><i class="fa fa-angle-right"></i> product with
-                                        sidebar</a>
+                                <li><a href="/properties"><i class="fa fa-angle-right"></i> Ver</a></li>
+                                <li><a href="/properties_create"><i class="fa fa-angle-right"></i> Agregar</a>
                                 </li>
-                                <li><a href="product_single.html"><i class="fa fa-angle-right"></i> product single</a></li>
-                                <li><a href="cart.html"><i class="fa fa-angle-right"></i> cart</a></li>
+
                             </ul>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o"></i> pages</a>
-                            <ul class="sub-menu">
-                                <li><a href="about_us.html"><i class="fa fa-angle-right"></i> about us</a></li>
-                                <li><a href="comingsoon.html"><i class="fa fa-angle-right"></i> comingsoon</a></li>
-                                <li><a href="contact.html"><i class="fa fa-angle-right"></i> contact</a></li>
-                                <li><a href="coupon_list.html"><i class="fa fa-angle-right"></i> coupon list</a></li>
-                                <li><a href="faqs.html"><i class="fa fa-angle-right"></i> faq's</a></li>
-                                <li><a href="forum.html"><i class="fa fa-angle-right"></i> forum</a></li>
-                                <li><a href="error.html"><i class="fa fa-angle-right"></i> 404 error</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-user"></i> My Profile</a>
-                            <ul class="sub-menu">
-                                <li><a href="author_profile.html"><i class="fa fa-angle-right"></i> author profile</a></li>
-                                <li><a href="author_dashboard.html"><i class="fa fa-angle-right"></i> author dashboard</a>
-                                </li>
-                                <li><a href="user_dashboard.html"><i class="fa fa-angle-right"></i> user dashboard</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-stack-exchange"></i> knowledge Base</a>
-                            <ul class="sub-menu">
-                                <li><a href="knowledge.html"><i class="fa fa-angle-right"></i> knowledge Base</a></li>
-                                <li><a href="knowledge_single.html"><i class="fa fa-angle-right"></i> knowledge Base single</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o"></i> blog</a>
-                            <ul class="sub-menu">
-                                <li><a href="blog.html"><i class="fa fa-angle-right"></i> blog</a></li>
-                                <li><a href="blog_single.html"><i class="fa fa-angle-right"></i> blog single</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="rs_social">
-                    <ul>
-                        <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                        <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                        <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href=""><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href=""><i class="fa fa-dribbble"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -135,40 +107,17 @@
                         <span class="rs_bars" id="open-button"><i class="fa fa-bars"></i></span>
                         <!-- <span class="rs_close" id="close-button"><i class="fa fa-times"></i></span> -->
                     </div>
-                    <div class="rs_search">
-                        <form>
-                            <input type="text" class="rs_search_input" placeholder="buscar">
-                        </form>
-                    </div>
-                </div>
-                <div class="rs_topheader_center">
-                    <a href="index_digital.html"><img src="{{asset('images/small_logo.png')}}" alt=""></a>
                 </div>
                 <div class="rs_topheader_right">
                     <div class="rs_user_pic">
-                        <div>
-                            <h6>DigitalHeaps</h6>
-                            <h5>$1560.00</h5>
-                        </div>
-                        <img src="../../public/images/user.png" alt="">
                         <i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i>
                     </div>
                     <div class="rs_user_profile">
                         <ul>
                             <li><a href="author_dashboard.html"><i class="fa fa-user"></i> profile</a></li>
-                            <li><a href="author_dashboard.html"><i class="fa fa-download"></i> download</a></li>
                             <li><a href="author_dashboard.html"><i class="fa fa-cog"></i> setting</a></li>
-                            <li><a href="author_dashboard.html"><i class="fa fa-usd"></i> earning</a></li>
-                            <li><a href="author_dashboard.html"><i class="fa fa-upload"></i> upload</a></li>
-                            <li><a href="author_dashboard.html"><i class="fa fa-envelope"></i> message</a></li>
-                            <li><a href="author_dashboard.html"><i class="fa fa-briefcase"></i> withdrow</a></li>
-                            <li><a href="author_dashboard.html"><i class="fa fa-futbol-o"></i> support</a></li>
                         </ul>
                     </div>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><i class="fa fa-heart"></i> (28)</a></li>
-                        <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> (2)</a></li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -176,32 +125,6 @@
 <!--Loader Start -->
     @yield('content')
  <!-- footer -->
-    <div class="rs_topfooterwrapper rs_toppadder20 rs_bottompadder20">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="rs_footersocial">
-                        <h5>Connect with us</h5>
-                        <ul>
-                            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-apple"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-youtube-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-tumblr-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-xing-square"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="rs_footer rs_toppadder60 rs_bottompadder60">
         <div class="container">
             <div class="row">
@@ -340,7 +263,6 @@
     <script src="{{asset('js/plugins/c3_chart/d3.v3.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('js/plugins/c3_chart/c3.js')}}" type="text/javascript"></script>
     <script src="{{asset('js/pgwslideshow.js')}}" type="text/javascript"></script>
-    <script src="{{asset('js/scripts/properties.js')}}"></script>
     <script src="{{asset('js/custom.js')}}" type="text/javascript"></script>
 
     <!-- Script end -->

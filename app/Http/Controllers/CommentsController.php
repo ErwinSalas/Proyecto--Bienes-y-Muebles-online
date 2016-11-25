@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Comment;
 
 class CommentsController extends Controller
 {
@@ -37,6 +38,9 @@ class CommentsController extends Controller
     public function store(Request $request)
     {
         //
+        $comment = new Comment($request->all());
+        $comment->save();
+        return redirect('/properties/'.$request->property_id);
     }
 
     /**
@@ -82,5 +86,8 @@ class CommentsController extends Controller
     public function destroy($id)
     {
         //
+        $comment = Comment::find($id);
+        $comment->delete();
+        return redirect('/properties');
     }
 }

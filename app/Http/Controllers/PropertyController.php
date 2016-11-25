@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Property;
-
+use App\Comment;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 use Session;
 use Redirect;
 
@@ -19,13 +20,16 @@ class PropertyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function listing()
+    public function listing(Request $request)
     {
-        //
-        $properties=Property::all();
-        return response()->json(
-            $properties->toArray()
-        );
+
+        $filter=$request->input('filter');
+        if($filter != "") {
+            $properties=Property::where('name','like',"%".$filter."%")->paginate(8);
+            return response()->json(view('properties/properties', compact('properties'))->render());
+        }
+        $properties=Property::paginate(8);
+        return response()->json(view('properties/properties', compact('properties'))->render());
     }
 
 
@@ -33,7 +37,9 @@ class PropertyController extends Controller
     {
         //
         return view("properties/index");
+
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -55,7 +61,7 @@ class PropertyController extends Controller
     {
         //
         Property::create($request->all());
-        return $this->index();
+        return $this->index($request);
     }
 
     /**
@@ -67,9 +73,12 @@ class PropertyController extends Controller
     public function show($id)
     {
         //
-        Property::destroy($id);
-        Session::flash('message','propiedad Eliminada Correctamente');
-        return Redirect::to('/');
+
+        $property=Property::find($id);
+        $comments = Comment::all();
+        
+        return view('properties/show',['property'=>$property, 'comments'=>$comments]);
+
     }
 
     /**
@@ -105,8 +114,12 @@ class PropertyController extends Controller
     {
         //
         Property::destroy($id);
-        Session::flash('message','propiedad Eliminada Correctamente');
-        return Redirect::to('/');
+
+        return response()->json(["Mensaje"=>"Listo"]);
+
+
+    }
+    public function verProductos($id){
 
     }
 }
