@@ -258,7 +258,14 @@
                                         </a>
 
                                     </li>
+<<<<<<< HEAD
                                     <li><a href="/properties" class="filter" data-filter="all">Todos </a></li>  
+=======
+                                    <li><a href="#" class="filter" data-filter="all">Todos </a></li>
+                                    <li><a href="#" class="filter" data-filter=".mockups">Ofertas</a></li>
+                                    <li><a href="#" class="filter" data-filter=".html">Mas Vistos</a></li>
+                                    <li><a href="#" class="filter" data-filter=".psd">Mas Nuevos</a></li>
+>>>>>>> 584e885858a9c4456521d0a09eb34caa7770fe57
                                 </ul>
                             </div>
 
@@ -300,6 +307,31 @@
                                         </div>
                                         <div class="rs_product_detail">
                                             <h5><a href="product_single.html">{{$property->name}}</a></h5>
+<<<<<<< HEAD
+=======
+
+                                            <div class="rs_rating">
+                                                <form>
+                                                    <input value="5" type="number" class="rating" min=0 max=5 step=0.5
+                                                           data-size="xs">
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="rs_product_div_footer">
+                                            <div class="rs_author_div">
+                                                <img src="{{asset('images/author1.jpg')}}" class="img-responsive" alt="">
+                                                <div>
+                                                    <h4><a href="author_dashboard.html">Jashon Matt</a></h4>
+                                                    <p><a href="#">PSD Templates</a></p>
+                                                </div>
+                                            </div>
+                                            <div class="rs_share">
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-comment-o"></i> <span>12</span></a></li>
+                                                    <li><a href="#"><i class="fa fa-heart-o"></i> <span>98</span></a></li>
+                                                </ul>
+                                            </div>
+>>>>>>> 584e885858a9c4456521d0a09eb34caa7770fe57
                                         </div>
                                     </div>
                                 </div>

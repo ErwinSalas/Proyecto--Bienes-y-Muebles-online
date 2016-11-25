@@ -50,6 +50,7 @@
                     <ul>
                         <li>
                             <a href="#"><i class="fa fa-user"></i> Usuarios</a>
+<<<<<<< HEAD
                             <ul class="sub-menu">
                                 @if (Auth::guest())
                                     <li><a href="{{ url('/login') }}">Login</a></li>
@@ -75,9 +76,24 @@
                                         </ul>
                                     </li>
                                 @endif
+=======
+                            <ul class="sub-menu">
+                                <li><a href="about_us.html"><i class="fa fa-angle-right"></i>Ver</a></li>
+                                <li><a href="comingsoon.html"><i class="fa fa-angle-right"></i>Agregar</a></li>
 
                             </ul>
                         </li>
+                        <li>
+                            <a href="#"><i class="fa fa-shopping-cart"></i> Bienes</a>
+                            <ul class="sub-menu">
+                                <li><a href="/properties"><i class="fa fa-angle-right"></i> Ver</a></li>
+                                <li><a href="/properties_create"><i class="fa fa-angle-right"></i> Agregar</a>
+                                </li>
+>>>>>>> 584e885858a9c4456521d0a09eb34caa7770fe57
+
+                            </ul>
+                        </li>
+
                         <li>
                             <a href="#"><i class="fa fa-shopping-cart"></i> Bienes</a>
                             <ul class="sub-menu">

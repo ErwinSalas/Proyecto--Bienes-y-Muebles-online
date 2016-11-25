@@ -22,6 +22,7 @@ class PropertyController extends Controller
      */
     public function listing(Request $request)
     {
+<<<<<<< HEAD
 
         $filter=$request->input('filter');
         if($filter != "") {
@@ -30,6 +31,18 @@ class PropertyController extends Controller
         }
         $properties=Property::paginate(8);
         return response()->json(view('properties/properties', compact('properties'))->render());
+=======
+        //
+        /*$properties=Property::all();
+        return response()->json(
+            $properties->toArray()
+        );*/
+        $properties=Property::paginate(4);
+        if($request->ajax()) {
+            return response()->json(view('properties/properties', compact('properties'))->render());
+        }
+        return view("properties/properties", compact("properties")->render());
+>>>>>>> 584e885858a9c4456521d0a09eb34caa7770fe57
     }
 
 
@@ -74,10 +87,15 @@ class PropertyController extends Controller
     {
         //
 
+<<<<<<< HEAD
         $property=Property::find($id);
         $comments = Comment::all();
         
         return view('properties/show',['property'=>$property, 'comments'=>$comments]);
+=======
+
+
+>>>>>>> 584e885858a9c4456521d0a09eb34caa7770fe57
 
     }
 

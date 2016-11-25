@@ -19,7 +19,31 @@
 		</div>
 	</div>
 	<!--Breadcrumb end-->
+<<<<<<< HEAD
 
+=======
+	<div class="rs_search_section rs_toppadder40 rs_bottompadder40">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+					<div class="row">
+
+
+						<div class="rs_search_form">
+							<form class="form-inline">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Buscar.....">
+								</div>
+								<button class="btn rs_search_btn">Search</button>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+>>>>>>> 584e885858a9c4456521d0a09eb34caa7770fe57
 	<div class="rs_graybg rs_product_found rs_bottompadder30">
 		<div class="container">
 			<div class="row">
@@ -27,6 +51,7 @@
 					<div class="rs_filte rs_product4column">  
 						<div class="row">
 
+<<<<<<< HEAD
 							<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 								<ul class="rs_sorting">
 									<li><a href="/properties" class="filter " >Todos </a></li>
@@ -39,6 +64,22 @@
 									</div>
 									<button  id="btn-search" class="btn btn-default">buscar</button>
 								</form>
+=======
+							<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+								<ul class="rs_sorting">
+									<li><a href="#" class="filter " >Todos </a></li>
+									<li><a href="#" class="filter" >Precio</a></li>
+									<li><a href="#" class="filter" >Estado</a></li>
+									<li><a href="#" class="filter" >Ratings</a></li>
+								</ul>
+								<div class="rs_product_view">
+									<ul>
+										<li><a href="#"><i class="fa fa-th-list"></i></a></li>
+										<li><a href="#"><i class="fa fa-th-large"></i></a></li>
+									</ul>
+								</div>
+
+>>>>>>> 584e885858a9c4456521d0a09eb34caa7770fe57
 							</div>
 						</div>
 					</div>
