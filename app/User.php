@@ -23,15 +23,14 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email','password','type','state','image'
     ];
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+
 
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+
     public function setImageAttribute($image){
         if($this->password != null){
             if(! empty($image)){
