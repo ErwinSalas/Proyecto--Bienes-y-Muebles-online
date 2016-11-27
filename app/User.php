@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use \app\Comments;
+use Carbon\Carbon;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -20,7 +21,7 @@ class User extends Authenticatable
      */
 
     protected $fillable = [
-        'name', 'email','password','type'
+        'name', 'email','password','type','state','image'
     ];
     /**
      * The attributes that should be hidden for arrays.
@@ -31,4 +32,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function setImageAttribute($image){
+        if($this->password != null){
+            if(! empty($image)){
+                $name = Carbon::now()->second.$image->getClientOriginalName();
+                $this->attributes['image'] = $name;
+                \Storage::disk('local')->put($name, \File::get($image));
+            }
+        }
+        $this->attributes['image'] = $image;
+
+    }
 }

@@ -131,7 +131,7 @@
 
             scrollOutside  : true,
 
-            // Override some properties_images
+            // Override some app_images
             index   : 0,
             type    : null,
             href    : null,
@@ -792,7 +792,7 @@
 
             coming = $.extend(true, {}, F.opts, obj);
 
-            // Convert margin and padding properties_images to array - top, right, bottom, left
+            // Convert margin and padding app_images to array - top, right, bottom, left
             margin  = coming.margin;
             padding = coming.padding;
 
@@ -1695,7 +1695,7 @@
             closeClick : true,      // if true, fancyBox will be closed when user clicks on the overlay
             speedOut   : 200,       // duration of fadeOut animation
             showEarly  : true,      // indicates if should be opened immediately or wait until the content is ready
-            css        : {},        // custom CSS properties_images
+            css        : {},        // custom CSS app_images
             locked     : !isTouch,  // if true, the content will be locked into overlay
             fixed      : true       // if false, the overlay CSS position property will not be set to "fixed"
         },

@@ -34,29 +34,30 @@
             <div class="row align-center">
                 <div class="col-md-12 ">
                     <form  role="form" class="rs_contact_form" method="post" action="/properties" enctype="multipart/form-data">
+                    
                         <div class="rs_submitform">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
-                                <input name="name" type="text" class="form-control" id="ur_name" placeholder="Enter your name">
+                                <input name="name" type="text" required class="form-control" id="ur_name" placeholder="Enter the name of the property">
                             </div>
                             <div class="form-group">
-                                <input name="image" type="file" class="form-control" id="ur_mail" placeholder="Enter your mail address">
+                                <input name="image" type="file" required class="form-control" id="ur_mail" placeholder="Enter the umage">
                             </div>
                             <div class="form-group">
-                                <input name="location" type="text" class="form-control" id="ur_mail" placeholder="Enter your mail address">
+                                <input name="location" type="text" required class="form-control" id="ur_mail" placeholder="Enter the location">
                             </div>
                             <div class="form-group">
-                                <input name="state" type="text" class="form-control" id="ur_mail" placeholder="Enter your mail address">
+                                <input name="state" type="text" required class="form-control" id="ur_mail" placeholder="Enter the state">
                             </div>
 
                             <div class="form-group">
-                                <input name="price" type="number" class="form-control" id="sub" placeholder="Enter your subject">
+                                <input name="price" type="number" required class="form-control" id="sub" placeholder="Enter the price">
                             </div>
 
-                            <textarea name="description" class="form-control" rows="10" id="msg" placeholder="Enter your message"></textarea>
+                            <textarea name="description" required class="form-control" rows="10" id="msg" placeholder="Enter your description message"></textarea>
 
                             <div class="rs_btn_div rs_toppadder30">
-                                <input type="submit" id="send_btn" class="rs_button rs_button_orange">send</input>
+                                <input type="submit" id="send_btn" class="rs_button rs_button_orange"></input>
 
                             </div>
 

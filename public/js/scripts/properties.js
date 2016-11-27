@@ -65,19 +65,9 @@ function Eliminar(id){
     console.log(token);
 }
 
-function Mostrar(id){
-    var route = "http://localhost:8000/properties/"+id;
 
-    $.get(route, function(res){
-        $("#genre").val(res.genre);
-        $("#id").val(res.id);
-    });
-}
-
-$("#actualizar").click(function(){
-    var value = $("#id").val();
-    var dato = $("#genre").val();
-    var route = "http://localhost:8000/properties/"+value+"";
+function actualizar(id){
+    var route = "http://localhost:8000/properties/"+id+"";
     var token = $("#token").val();
 
     $.ajax({
@@ -85,10 +75,16 @@ $("#actualizar").click(function(){
         headers: {'X-CSRF-TOKEN': token},
         type: 'PUT',
         dataType: 'json',
-        data: {genre: dato},
+        data: {
+            name:$('#name').val(),
+            state:$('#state').val(),
+            price:$('#price').val(),
+            description:$('#unit_type').val(),
+
+
+        },
         success: function(){
-            Carga();
-            $("#myModal").modal('toggle');
-            $("#msj-success").fadeIn();
+
         }
-    });});
+    });
+}
