@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <!--
-	Template Name:Restored Multipurpose Responsive HTML Template
-	Version: 1.0
-	Author: DigiSamaritan
-	Website: digisamaritan.com
-	Purchase: http://themeforest.net/user/DigiSamaritan
-	-->
+    Template Name:Restored Multipurpose Responsive HTML Template
+    Version: 1.0
+    Author: DigiSamaritan
+    Website: digisamaritan.com
+    Purchase: http://themeforest.net/user/DigiSamaritan
+    -->
 <!--[if IE 8]>
 <html lang="en" class="ie8 no-js">
 <![endif]-->
@@ -24,9 +24,12 @@
     <meta name="keywords" content="">
     <meta name="author" content="">
     <meta name="MobileOptimized" content="320">
+    <!--meta name="csrf-token" content="{{ csrf_token() }}"-->
     <!--srart theme style -->
 
     <link href="{{asset('css/main.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/profile.css')}}" rel="stylesheet" type="text/css">
+
     <!-- end theme style -->
     <!-- favicon links -->
     <link rel="shortcut icon" type="image/png" href="../../public/images/favicon.png">
@@ -40,56 +43,28 @@
             <div class="rs_menu_inner_section">
                 <div class="rs_menu_pic">
                     <img src="{{asset('images/menubg.jpg')}}" class="img-responsive" alt="">
-                    <div class="rs_menu_pic_overlay">
-                        <div class="rs_menu_inner_pic">
-                            <img src="{{asset('images/menulogo.png')}}" alt="">
-                        </div>
-                    </div>
                 </div>
                 <div class="rs_main_menu">
                     <ul>
+                        @if (Auth::user()->type == 'Admin')
                         <li>
                             <a href="#"><i class="fa fa-user"></i> Usuarios</a>
                             <ul class="sub-menu">
-                                <li><a href="about_us.html"><i class="fa fa-angle-right"></i>Ver</a></li>
-                                <li><a href="comingsoon.html"><i class="fa fa-angle-right"></i>Agregar</a></li>
-
+                                <li><a href="/users">Ver todos</a></li>
                             </ul>
                         </li>
+                       @endif
                         <li>
                             <a href="#"><i class="fa fa-shopping-cart"></i> Bienes</a>
                             <ul class="sub-menu">
                                 <li><a href="/properties"><i class="fa fa-angle-right"></i> Ver</a></li>
+                                @if (Auth::user()->type == 'Admin')
                                 <li><a href="/properties_create"><i class="fa fa-angle-right"></i> Agregar</a>
                                 </li>
+                                @endif
 
                             </ul>
                         </li>
-
-                        <li>
-                            <a href="#"><i class="fa fa-stack-exchange"></i> knowledge Base</a>
-                            <ul class="sub-menu">
-                                <li><a href="knowledge.html"><i class="fa fa-angle-right"></i> knowledge Base</a></li>
-                                <li><a href="knowledge_single.html"><i class="fa fa-angle-right"></i> knowledge Base single</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o"></i> blog</a>
-                            <ul class="sub-menu">
-                                <li><a href="blog.html"><i class="fa fa-angle-right"></i> blog</a></li>
-                                <li><a href="blog_single.html"><i class="fa fa-angle-right"></i> blog single</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="rs_social">
-                    <ul>
-                        <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                        <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                        <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href=""><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href=""><i class="fa fa-dribbble"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -110,40 +85,28 @@
                         <span class="rs_bars" id="open-button"><i class="fa fa-bars"></i></span>
                         <!-- <span class="rs_close" id="close-button"><i class="fa fa-times"></i></span> -->
                     </div>
-                    <div class="rs_search">
-                        <form>
-                            <input type="text" class="rs_search_input" placeholder="buscar">
-                        </form>
-                    </div>
                 </div>
-                <div class="rs_topheader_center">
-                    <a href="index_digital.html"><img src="{{asset('images/small_logo.png')}}" alt=""></a>
-                </div>
-                <div class="rs_topheader_right">
+                <div class="rs_topheader_right" style="position: absolute; margin-left: 85%">
                     <div class="rs_user_pic">
-                        <div>
-                            <h6>DigitalHeaps</h6>
-                            <h5>$1560.00</h5>
-                        </div>
-                        <img src="../../public/images/user.png" alt="">
-                        <i class="glyphicon glyphicon-option-vertical" aria-hidden="true"></i>
+                        <i class="glyphicon glyphicon-option-vertical" aria-hidden="true">{{ Auth::user()->name }}</i>
                     </div>
                     <div class="rs_user_profile">
                         <ul>
-                            <li><a href="author_dashboard.html"><i class="fa fa-user"></i> profile</a></li>
-                            <li><a href="author_dashboard.html"><i class="fa fa-download"></i> download</a></li>
-                            <li><a href="author_dashboard.html"><i class="fa fa-cog"></i> setting</a></li>
-                            <li><a href="author_dashboard.html"><i class="fa fa-usd"></i> earning</a></li>
-                            <li><a href="author_dashboard.html"><i class="fa fa-upload"></i> upload</a></li>
-                            <li><a href="author_dashboard.html"><i class="fa fa-envelope"></i> message</a></li>
-                            <li><a href="author_dashboard.html"><i class="fa fa-briefcase"></i> withdrow</a></li>
-                            <li><a href="author_dashboard.html"><i class="fa fa-futbol-o"></i> support</a></li>
+                        <li><a href="/profile/{{ Auth::user()->id }}"><i class="fa fa-user"></i> profile</a></li>
+                        <li>
+                            <a href="{{ url('/logout') }}"
+                                onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                            
                         </ul>
                     </div>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><i class="fa fa-heart"></i> (28)</a></li>
-                        <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> (2)</a></li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -151,142 +114,43 @@
 <!--Loader Start -->
     @yield('content')
  <!-- footer -->
-    <div class="rs_topfooterwrapper rs_toppadder20 rs_bottompadder20">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="rs_footersocial">
-                        <h5>Connect with us</h5>
-                        <ul>
-                            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-apple"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-youtube-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-tumblr-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-xing-square"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="rs_footer rs_toppadder60 rs_bottompadder60">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <div class="rs_footerdiv">
-                        <img src="{{asset('images/footer_logo.png')}}" class="img-responsive" alt="">
-                        <p>We have a number of different teams within our agency that specialise in different areas of
-                            business.
-                        </p>
-                        <p>So you can be sure that you won’t receive a generic service and although we can’t boast years and
-                            years of service.
-                        </p>
-                        <a href="#" class="rs_readmore">read more <i class="fa fa-angle-double-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="rs_footerdiv">
-                                <h5 class="rs_footerheading">Company Links</h5>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>about <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Terms <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Privacy Policy <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Careers <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Directory <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>SimpleLicense <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Brand <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="rs_footerdiv">
-                                <h5 class="rs_footerheading">Earn & Goodies</h5>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Open a Shop <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Become a Partner <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Free Goods <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Purchase Credits <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Gift Cards <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Branding ebook <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="rs_footerdiv">
-                                <h5 class="rs_footerheading">Community</h5>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Discussions <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Blog <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Members <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Products <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Help Center <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Collections <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"> </i>Meet up <i
-                                                    class="fa fa-angle-double-right"> </i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <div class="rs_footerdiv widget_tag_cloud">
-                        <h5 class="rs_footerheading">Categories</h5>
-                        <a href="#">Graphic</a>
-                        <a href="#">Mockup</a>
-                        <a href="#">Wordpress</a>
-                        <a href="#">Html</a>
-                        <a href="#">PSD</a>
-                        <a href="#">Mobile UI Kit</a>
-                        <a href="#">Vectors</a>
-                        <a href="#">Icons</a>
-                        <a href="#">Joomla</a>
-                        <a href="#">Drupal</a>
-                        <a href="#">Fonts</a>
-                        <a href="#">Stock Images</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="rs_bottomfooter rs_toppadder30 rs_bottompadder20">
         <div class="container">
             <div class="row">
+            <div class="container">
+        
+    <div class="col-sm-8 contact-form">
+        <form id="contact" method="post" class="form" role="form">
+        <div class="row">
+        <div class="col-xs-6 col-md-6 form-group">
+        <input class="form-control" id="name" name="name" placeholder="Name" type="text" required autofocus />
+        </div>
+        <div class="col-xs-6 col-md-6 form-group">
+        <input class="form-control" id="email" name="email" placeholder="Email" type="email" required />
+        </div>
+        </div>
+        <textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>
+        <br />
+        <div class="row">
+        <div class="col-xs-12 col-md-12 form-group">
+        <button class="btn btn-primary pull-right" type="submit">Submit</button>
+        </form>
+    </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="rs_copyright">
-                        <p>&copy; <a href="index_digital.htnl">Restored.</a> All rights reserved. Designed with Love by <a
-                                    href="#">DigitalHeaps</a></p>
+                        <p>&copy;&nbsp; All rights reserved. Designed with Love by:&nbsp;&nbsp;<strong>Bryan Ruiz - Erwin Salas</strong> </p>
                     </div>
                 </div>
             </div>
+        </div>
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </path>
+        </svg>
         </div>
     </div>
     <!-- Script Start -->

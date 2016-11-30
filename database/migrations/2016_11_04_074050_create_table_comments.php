@@ -21,7 +21,7 @@ class CreateTableComments extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('property_id')->unsigned();
             $table->foreign('property_id')->references('id')->on('properties')->onDelete('cascade');
-            $table->timestamps('date');
+            $table->timestamps();
         });
     }
 

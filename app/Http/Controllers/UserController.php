@@ -6,9 +6,17 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\User;
+use App\Property;
 
 class UserController extends Controller
 {
+
+    public function listing(Request $request)
+    {
+
+        $users=User::paginate(8);
+        return response()->json(view('users/users', compact('users'))->render());
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +25,8 @@ class UserController extends Controller
     public function index()
     {
         //
-        return view('');
+
+        return view('users/index');
     }
 
     /**
@@ -56,6 +65,8 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        $user = User::find($id);
+        return view('users/profile',['user'=>$user]);
     }
 
     /**
@@ -91,5 +102,6 @@ class UserController extends Controller
     {
         //
         User::destroy($id);
+        return redirect('/login');    
     }
 }

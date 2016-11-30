@@ -379,7 +379,7 @@
                 this._createWidget( options, element );
             }
         };
-        // extend with the existing constructor to carry over any static properties_images
+        // extend with the existing constructor to carry over any static app_images
         $.extend( constructor, existingConstructor, {
             version: prototype.version,
             // copy the object used to create the prototype in case we need to
@@ -803,7 +803,7 @@
             // so we need to reset the target on the new event
             event.target = this.element[ 0 ];
 
-            // copy original event properties_images over to the new event
+            // copy original event app_images over to the new event
             orig = event.originalEvent;
             if ( orig ) {
                 for ( prop in orig ) {
@@ -1788,7 +1788,7 @@
         },
 
         _mouseDrag: function(event, noPropagation) {
-            // reset any necessary cached properties_images (see #5009)
+            // reset any necessary cached app_images (see #5009)
             if ( this.hasFixedAncestor ) {
                 this.offset.parent = this._getParentOffset();
             }
@@ -2280,7 +2280,7 @@
                     draggable.cancelHelperRemoval = true;
                     sortable.cancelHelperRemoval = false;
 
-                    // Use _storedCSS To restore properties_images in the sortable,
+                    // Use _storedCSS To restore app_images in the sortable,
                     // as this also handles revert (#9675) since the draggable
                     // may have modified them in unexpected ways (#8809)
                     sortable._storedCSS = {
@@ -13205,7 +13205,7 @@
         supportElem.style.cssText = "background-color:rgba(1,1,1,.5)";
         support.rgba = supportElem.style.backgroundColor.indexOf( "rgba" ) > -1;
 
-// define cache name and alpha properties_images
+// define cache name and alpha app_images
 // for rgba and hsla spaces
         each( spaces, function( spaceName, space ) {
             space.cache = "_" + spaceName;
@@ -13337,7 +13337,7 @@
                                     inst[ cache ] = space.to( inst._rgba );
                                 }
 
-                                // this is the only case where we allow nulls for ALL properties_images.
+                                // this is the only case where we allow nulls for ALL app_images.
                                 // call clamp with alwaysAllowEmpty
                                 inst[ cache ][ prop.idx ] = clamp( red[ key ], prop, true );
                             });
@@ -13638,7 +13638,7 @@
         });
 
 // add cssHook and .fx.step function for each named hook.
-// accept a space separated string of properties_images
+// accept a space separated string of app_images
         color.hook = function( hook ) {
             var hooks = hook.split( " " );
             each( hooks, function( i, hook ) {
@@ -13872,7 +13872,7 @@
                     applyClassChange();
 
                     // for each animated element,
-                    // clear all css properties_images that were animated
+                    // clear all css app_images that were animated
                     $.each( arguments, function() {
                         var el = this.el;
                         $.each( this.diff, function(key) {
@@ -13944,7 +13944,7 @@
         $.extend( $.effects, {
             version: "1.11.4",
 
-            // Saves a set of properties_images in a data storage
+            // Saves a set of app_images in a data storage
             save: function( element, set ) {
                 for ( var i = 0; i < set.length; i++ ) {
                     if ( set[ i ] !== null ) {
@@ -13953,7 +13953,7 @@
                 }
             },
 
-            // Restores a set of previously saved properties_images from a data storage
+            // Restores a set of previously saved app_images from a data storage
             restore: function( element, set ) {
                 var val, i;
                 for ( i = 0; i < set.length; i++ ) {
@@ -14001,7 +14001,7 @@
                 };
             },
 
-            // Wraps the element around a wrapper that copies position properties_images
+            // Wraps the element around a wrapper that copies position app_images
             createWrapper: function( element ) {
 
                 // if the element is already wrapped, return it
@@ -14049,7 +14049,7 @@
 
                 wrapper = element.parent(); //Hotfix for jQuery 1.4 since some change in wrap() seems to actually lose the reference to the wrapped element
 
-                // transfer positioning properties_images to the wrapper
+                // transfer positioning app_images to the wrapper
                 if ( element.css( "position" ) === "static" ) {
                     wrapper.css({ position: "relative" });
                     element.css({ position: "relative" });
@@ -14365,7 +14365,7 @@
             show = mode === "show",
             wrapper, distance, margin;
 
-        // if already wrapped, the wrapper's properties_images are my property. #6245
+        // if already wrapped, the wrapper's app_images are my property. #6245
         if ( el.parent().is( ".ui-effects-wrapper" ) ) {
             $.effects.save( el.parent(), props );
         } else {

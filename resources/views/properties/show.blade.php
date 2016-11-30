@@ -11,65 +11,29 @@
                     <h3 class="rs_bottompadder20">{{$property->name}}</h3>
                 </div>
             </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <ul class="breadcrumb">
-                    <li><a href="index.blade.php">home</a></li>
-                    <li><a href="product_4Column.html">Products</a></li>
-                    <li class="active">HTML Templates</li>
-                </ul>
-            </div>
         </div>
     </div>
 </div>
 <!--Breadcrumb end-->
 <div class="rs_graybg rs_toppadder60 rs_bottompadder70">
     <div class="container">
-        <div class="row">
+        <div class="row" style="margin-left: 20%">
             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                 <div class="rs_single_product_slider">
                     <ul class="pgwSlideshow">
-                        <li><img src="{{asset('properties_images/'.$property->image)}}" alt=""></li>
-                        <li><img src="{{asset('properties_images/'.$property->image)}}" alt=""></li>
-                        <li><img src="{{asset('properties_images/'.$property->image)}}" alt=""></li>
-                        <li><img src="{{asset('properties_images/'.$property->image)}}" alt=""></li>
-                        <li><img src="{{asset('properties_images/'.$property->image)}}" alt=""></li>
+                        <li><img src="{{asset('app_images'.$property->image)}}" alt=""></li>
                     </ul>
-                </div>
-                <div class="rs_single_product_btn_section rs_toppadder30 rs_bottompadder30">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <div class="rs_btn_div">
-                                <a href="#" class="rs_button rs_button_orange">live demo</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <div class="rs_btn_div">
-                                <a href="#" class="rs_button rs_button_orange">buy now $24</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="rs_buy_license_section">
                     <h4>Descripcion</h4>
                     <p>{{$property->description}}</p>
-                    <p>{{$property->description}}</p>
+                    
                     <h4>Ubicacion</h4>
-                    <p>Ultron HTML Template is design which is ideal as it is for minimalist, multipurpose, shop, web designer, freelancers creative agency sites, portfolio and photographer’s. The template comes with 49+ homepage design, custom color schemes and 124+ valid HTML files. The design is very elegant and modern, and also very easy to customize with 1170px grid. We hope so you will feel happy with them.</p>
-                    <p>The Ultron template comes with super awesome color scheme but you can build your own color combinations with our style.css file. Also the Ultron supported professional slider, custom menus (normal and left side) and HTML5 CSS3 technology! Build your own online stores with our great shopping template today!</p>
+                    <p>{{$property->location}}</p>
 
-
-                    <div class="rs_social">
-                        <ul>
-                            <li>share:</li>
-                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href=""><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href=""><i class="fa fa-dribbble"></i></a></li>
-                        </ul>
-                    </div>
+                    
                     <div class="rs_btn_div">
-                        <a href="#" class="rs_button rs_button_orange">${{$property->price}}</a>
+                        <a href="#" class="rs_button rs_button_orange">buy now ${{$property->price}}</a>
                     </div>
                 </div>
                 <div class="rs_single_product_tab_section">
@@ -77,8 +41,6 @@
                         <div class="rs_upper_tabwrapper">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#comments" data-toggle="tab">Comments</a></li>
-                                <li><a href="#rating" data-toggle="tab"> Rating & Reviews</a></li>
-                                <li><a href="#faq" data-toggle="tab">Support & FAQs</a></li>
                             </ul>
                         </div>
                     </div>
@@ -92,12 +54,15 @@
                                                 <div class="rs_comment_img">
                                                     <img src="{{asset('images/user.png')}}" class="img-responsive" alt="">
                                                 </div>
+                                                @foreach($comments as $comment)
+                                                @if($comment->property_id == $property->id)
                                                 <div class="rs_comment_data">
-                                                    <h5>Anita Micheal <kbd>Purchased</kbd></h5>
-                                                    <a href="#"><i class="fa fa-flag"></i> report</a>
-                                                    <span>19 Nov 2015</span>
-                                                    <p>Our teams are up to date with the latest technologies, media trends and are keen to prove themselves in this industry and that’s what you want from an advertising agency</p>
+                                                    <h5>{{$comment->user->name}}</h5>
+                                                    <a href="/deleteComment/{{$comment->id}}"><i class="fa fa-flag"></i> report</a>
+                                                    <p>{{$comment->content}}</p>
                                                 </div>
+                                                @endif
+                                                @endforeach 
                                             </div>
 
                                         </li>
@@ -108,15 +73,22 @@
                                                         <img src="{{asset('images/author2.jpg')}}" class="img-responsive" alt="">
                                                     </div>
                                                     <div class="rs_comment_data">
-                                                        <form>
+                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/createComment') }}">
+                        {{ csrf_field() }}
+
                                                             <div class="form-group">
-                                                                <textarea class="form-control" rows="3" placeholder="Write your reply here..."></textarea>
+                                                                <textarea name="content" id="content" class="form-control" rows="3" placeholder="Write your reply here..."></textarea>
                                                             </div>
+                                                            <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}">
+                                            <input type="hidden" id="property_id" name="property_id" value="{{ $property->id }}">
                                                             <div class="rs_reply_checkbox">
-                                                                <div class="rs_checkbox"><input type="checkbox" value="1" id="check1" name="checkbox">
-                                                                    <label for="check1"></label></div> <span>Receive email notification for this comments reply </span>
+                                                                <div class="rs_checkbox">
+
+                                                                    
                                                                 <div class="rs_btn_div">
-                                                                    <a href="#" class="rs_button rs_button_orange">reply</a>
+                                                                    <button type="submit" class="btn btn-primary">
+                                                                        Reply
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </form>
@@ -187,10 +159,10 @@
                                                     <ul class="pagination">
                                                         <li>
                                                             <a href="#" aria-label="Previous">
-																<span aria-hidden="true">
-																  <i class="fa fa-angle-left">
+                                                                <span aria-hidden="true">
+                                                                  <i class="fa fa-angle-left">
                                                                   </i>
-																</span>
+                                                                </span>
                                                             </a>
                                                         </li>
                                                         <li>
@@ -216,10 +188,10 @@
                                                         </li>
                                                         <li>
                                                             <a href="#" aria-label="Next">
-																<span aria-hidden="true">
-																  <i class="fa fa-angle-right">
+                                                                <span aria-hidden="true">
+                                                                  <i class="fa fa-angle-right">
                                                                   </i>
-																</span>
+                                                                </span>
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -318,10 +290,10 @@
                                                     <ul class="pagination">
                                                         <li>
                                                             <a href="#" aria-label="Previous">
-																<span aria-hidden="true">
-																  <i class="fa fa-angle-left">
+                                                                <span aria-hidden="true">
+                                                                  <i class="fa fa-angle-left">
                                                                   </i>
-																</span>
+                                                                </span>
                                                             </a>
                                                         </li>
                                                         <li>
@@ -347,10 +319,10 @@
                                                         </li>
                                                         <li>
                                                             <a href="#" aria-label="Next">
-																<span aria-hidden="true">
-																  <i class="fa fa-angle-right">
+                                                                <span aria-hidden="true">
+                                                                  <i class="fa fa-angle-right">
                                                                   </i>
-																</span>
+                                                                </span>
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -370,7 +342,7 @@
                                                 <ul>
                                                     <li><i class="fa fa-check-square-o"></i> Availability of the author to answer questions</li>
                                                     <li><i class="fa fa-check-square-o"></i> Answering technical questions about item’s features</li>
-                                                    <li><i class="fa fa-check-square-o"></i> Assistance with reported bugs and issues</li>
+                                                    <li><i class="fa fa-check-square-o"></i> Assistance with trted bugs and issues</li>
                                                     <li><i class="fa fa-check-square-o"></i> Help with included 3rd party assets</li>
                                                 </ul>
                                             </div>
@@ -413,188 +385,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                <div class="rs_sidebar_wrapper_fourth">
-                    <aside class="widget widget_license">
-                        <h4 class="widget-title">License of Use</h4>
-                        <p>You can use it for personal or commercial projects. You can't resell it partially or in this form.</p>
-                    </aside>
-
-                    <aside class="widget widget_button">
-                        <a href="cart.html" class="rs_button rs_button_blue">add to cart</a>
-                        <a href="#" class="rs_button rs_button_orange">buy $24</a>
-                    </aside>
-
-                    <aside class="widget widget_authors">
-                        <h4 class="widget-title">About Author</h4>
-                        <img src="images/athr_sdbr.png" alt="">
-                        <h5>DigitalGravy</h5>
-                        <p>We are a fairly small, flexible design studio that designs for print.</p>
-                        <div class="rs_rating">
-                            <form>
-                                <input value="5" type="number" class="rating" min=0 max=5 step=0.5 data-size="xs">
-                            </form>
-                        </div>
-                        <span>Author Since: Mar, 2012</span>
-                        <a href="author_profile.html" class="rs_button rs_button_gray">View Portfolio</a>
-                        <a href="#" class="rs_button rs_button_orange">send message</a>
-                    </aside>
-
-                    <aside class="widget widget_Share">
-                        <h4 class="widget-title">Share this</h4>
-                        <ul class="widget_Share_first">
-                            <li><a href="#" class="clr_1"><i class="fa fa-facebook-square"></i></a></li>
-                            <li><a href="#" class="clr_2"><i class="fa fa-twitter-square"></i></a></li>
-                            <li><a href="#" class="clr_3"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#" class="clr_4"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="#" class="clr_5"><i class="fa fa-google-plus-square"></i></a></li>
-                        </ul>
-                        <ul class="widget_Share_second">
-                            <li><a href="#"><i class="fa fa-heart-o"></i> Add to Wishlist</a> <span class="text-right">268</span></li>
-                            <li><a href="#"><i class="fa fa-thumbs-o-up"></i> 99% Recommended</a></li>
-                        </ul>
-                    </aside>
-
-                    <aside class="widget widget_meta_attributese">
-                        <h4 class="widget-title">product info</h4>
-                        <dl>
-                            <dt>Date</dt>
-                            <dd>- 18 Oct, 2015</dd>
-
-                            <dt>Downloads</dt>
-                            <dd>- 78</dd>
-
-                            <dt>Ratings</dt>
-                            <dd>- 8.9/10</dd>
-
-                            <dt>Share</dt>
-                            <dd>- 468</dd>
-
-                            <dt>Format</dt>
-                            <dd>- WordPress</dd>
-                        </dl>
-                        <p><span>tag: </span> <a href="#">html template,</a> <a href="#">minimal,</a> <a href="#">multi-purpose,</a> <a href="#">bootstrap,</a> <a href="#">css3,</a> <a href="#">html5,</a> <a href="#">agency,</a> <a href="#">theme,</a> <a href="#">elegant</a></p>
-                    </aside>
-
-                    <aside class="widget widget_technical_info">
-                        <h4 class="widget-title">technical info</h4>
-                        <ul>
-                            <li>Chrome, Safari, Firefox, IE 9+, IOS and Android</li>
-                            <li>Woo-commerce Integerated</li>
-                            <li>Responsive Layout</li>
-                            <li>4+ Columns</li>
-                            <li>Bootstrap 3.X</li>
-                            <li>High Resolution</li>
-                        </ul>
-                    </aside>
-
-                    <aside class="widget widget_product">
-                        <h4 class="widget-title">Related Products</h4>
-                        <div class="rs_product_div">
-                            <div class="rs_product_img">
-                                <img src="{{asset('images/product/product7.jpg')}}" class="img-responsive" alt="">
-                                <div class="rs_overlay">
-                                    <div class="rs_overlay_inner">
-                                        <ul>
-                                            <li><a class="fancybox animated slideInDown" data-fancybox-group="product" href="images/product/product_big7.jpg" title="120 Premium Templates Bundle"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#" class="animated slideInDown"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="rs_product_price"><h2><small>$</small>55</h2></div>
-                            </div>
-
-                            <div class="rs_product_detail">
-                                <h5><a href="product_single.html">120 Premium Templates Bundle</a></h5>
-                                <div class="rs_rating">
-                                    <form>
-                                        <input value="5" type="number" class="rating" min=0 max=5 step=0.5 data-size="xs">
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="rs_product_div_footer">
-                                <div class="rs_author_div">
-                                    <img src="{{asset('images/author7.jpg')}}" class="img-responsive" alt="">
-                                    <div>
-                                        <h4><a href="author_dashboard.html">Julianne Moore</a></h4>
-                                        <p><a href="#">HTML Templates</a></p>
-                                    </div>
-                                </div>
-                                <div class="rs_share">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-comment-o"></i> <span>13</span></a></li>
-                                        <li><a href="#"><i class="fa fa-heart-o"></i> <span>38</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rs_product_div">
-                            <div class="rs_product_img">
-                                <img src="{{asset('product/product10.jpg')}}" class="img-responsive" alt="">
-                                <div class="rs_overlay">
-                                    <div class="rs_overlay_inner">
-                                        <ul>
-                                            <li><a class="fancybox animated slideInDown" data-fancybox-group="product" href="images/product/product_big10.jpg" title="Multipurpose WP Theme"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="#" class="animated slideInDown"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="rs_product_price"><h2><small>$</small>48</h2></div>
-                            </div>
-
-                            <div class="rs_product_detail">
-                                <h5><a href="product_single.html">Multipurpose WP Theme</a></h5>
-                                <div class="rs_rating">
-                                    <form>
-                                        <input value="5" type="number" class="rating" min=0 max=5 step=0.5 data-size="xs">
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="rs_product_div_footer">
-                                <div class="rs_author_div">
-                                    <img src="images/author10.jpg" class="img-responsive" alt="">
-                                    <div>
-                                        <h4><a href="author_dashboard.html">Glenne Headly</a></h4>
-                                        <p><a href="#">Wordpress</a></p>
-                                    </div>
-                                </div>
-                                <div class="rs_share">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-comment-o"></i> <span>124</span></a></li>
-                                        <li><a href="#"><i class="fa fa-heart-o"></i> <span>30</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </aside>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="rs_testimonial_section rs_toppadder50 rs_bottompadder50">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="rs_subscribe_section_heading">
-                            <h4>Subscribe to our free update deals, announcements, freebies offer and More..!</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-lg-offset-3 col-md-offset-3">
-                        <div class="row">
-                            <div class="rs_subscribe_section_form rs_toppadder30">
-                                <form class="form">
-                                    <input class="form-control" type="text" placeholder="Enter your mail address to start receiving" />
-                                    <a href="#" class="rs_button rs_button_orange pull-right rs_center_btn">Subscribe</a>
-                                </form>
                             </div>
                         </div>
                     </div>

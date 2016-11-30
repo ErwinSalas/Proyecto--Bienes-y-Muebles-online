@@ -13,7 +13,7 @@ class Property extends Model
         return $this->hasMany('App\Comment');
     }
     protected $fillable = [
-        'name', 'description','image','state', 'price', 'location'
+        'name','image', 'location','state', 'price', 'description'
     ];
     public function setImageAttribute($image){
         if(! empty($image)){

@@ -153,7 +153,7 @@
 		/**
 		 * Extend
 		 * @since 2.1.0
-		 * @param {object} new properties_images/methods
+		 * @param {object} new app_images/methods
 		 * @extends {object} prototype
 		 */
 

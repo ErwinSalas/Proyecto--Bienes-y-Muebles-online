@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Property;
-
+use App\Comment;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -25,10 +25,10 @@ class PropertyController extends Controller
 
         $filter=$request->input('filter');
         if($filter != "") {
-            $properties=Property::where('name','like',"%".$filter."%")->paginate(4);
+            $properties=Property::where('name','like',"%".$filter."%")->paginate(8);
             return response()->json(view('properties/properties', compact('properties'))->render());
         }
-        $properties=Property::paginate(4);
+        $properties=Property::paginate(8);
         return response()->json(view('properties/properties', compact('properties'))->render());
     }
 
@@ -73,8 +73,11 @@ class PropertyController extends Controller
     public function show($id)
     {
         //
+
         $property=Property::find($id);
-        return view('properties/show',['property'=>$property]);
+        $comments = Comment::all();
+        
+        return view('properties/show',['property'=>$property, 'comments'=>$comments]);
 
     }
 
@@ -87,6 +90,8 @@ class PropertyController extends Controller
     public function edit($id)
     {
         //
+        $property=Property::find($id);
+        return view('properties/edit',['property'=>$property]);
     }
 
     /**
@@ -99,6 +104,11 @@ class PropertyController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $property=Property::find($id);
+        $property->fill($request->all());
+        $property->save();
+        return view("properties/index");
+
     }
 
     /**
