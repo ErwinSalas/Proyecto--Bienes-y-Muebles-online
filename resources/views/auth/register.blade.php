@@ -7,7 +7,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
+
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}" enctype="multipart/form-data">
+
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -37,6 +39,7 @@
                                 @endif
                             </div>
                         </div>
+
                         <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
                             <label for="image" class="col-md-4 control-label">Avatar</label>
 
@@ -50,6 +53,7 @@
                                 @endif
                             </div>
                         </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
@@ -76,10 +80,12 @@
                             <label for="name" class="col-md-4 control-label">Type</label>
 
                             <div class="col-md-6">
+
                                 <select id="type" class="form-control" name="type" required autofocus>
                                     <option value="Admin">Admin</option>
                                     <option value="User">User</option>
                                 </select>
+
 
                                 @if ($errors->has('type'))
                                     <span class="help-block">
@@ -88,6 +94,7 @@
                                 @endif
                             </div>
                         </div>
+0
                         <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
                             <label for="state" class="col-md-4 control-label">Estado</label>
 
@@ -96,6 +103,7 @@
                                     <option value=1>Activo</option>
                                     <option value=0>Inactivo</option>
                                 </select>
+
 
                                 @if ($errors->has('state'))
                                     <span class="help-block">

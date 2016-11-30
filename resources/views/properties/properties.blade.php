@@ -38,11 +38,13 @@
             @if (Auth::user()->type == 'Admin')
             <div class="rs_product_div_footer">
                 <div class="rs_share">
+
                     <ul style="position: absolute;">
                         <li><a onclick="Eliminar({{$property->id}})"> DELETE <i class="fa fa-eraser"></i></li>
                     </ul>
                     <ul style="margin-left: 230%">
                         <li><a href="properties/{{$property->id}}/edit"> EDIT <i class="fa fa-edit"></i></a></li>   
+
                     </ul>
                 </div>
             </div>

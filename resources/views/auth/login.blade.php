@@ -50,6 +50,7 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <a  class="btn btn-primary" href="{{ url('/auth/facebook') }}">
                                     <i>facebook</i> 
+
                                 </a>
                             </div>
                         </div>

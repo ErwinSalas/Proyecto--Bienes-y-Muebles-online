@@ -18,6 +18,7 @@
                     <div class="info">
                         <div class="title">
                             <a target="_blank">{{$user->name}}</a>
+
                         </div>
                         <div class="desc">{{$user->email}}</div>
                         <div class="desc">{{$user->type}}</div>
@@ -38,6 +39,7 @@
                         </a>
                         <a class="btn btn-primary btn-sm" rel="publisher"
                            >
+
                             <i class="fa fa-facebook"></i>
                         </a>
                         <div class="rs_product_div_footer">
